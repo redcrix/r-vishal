@@ -52545,6 +52545,45 @@ sliding-tabs .grid [col-6] {
   float: left;
 }
 
+.pr-image-home {
+  --background: url(https://cleanever.shop/wp-content/uploads/2019/08/home-cleaning-icon-1.png) no-repeat center/cover fixed;
+}
+
+.pr-image-css {
+  display: -webkit-inline-box;
+  border-radius: 133px;
+  border: solid #19a3dd;
+  background: white;
+  height: 11pc;
+}
+
+.pr-grid-my {
+  text-align: -webkit-center;
+  background: white;
+  margin: 12px 0px;
+  padding: 22px 12px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .pr-image-css {
+    display: -webkit-inline-box;
+    border-radius: 133px;
+    border: solid #19a3dd;
+    background: white;
+    height: 6pc;
+  }
+}
+
+@media only screen and (max-width: 1030px) {
+  .pr-image-css {
+    display: -webkit-inline-box;
+    border-radius: 133px;
+    border: solid #19a3dd;
+    background: white;
+    height: 5pc;
+  }
+}
+
 page-about-us .page-about-us .page-content {
   margin-bottom: 15px;
   letter-spacing: 0.5px;

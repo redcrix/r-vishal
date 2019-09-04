@@ -100,7 +100,7 @@ export class ProductComponent {
     if (date > todayDate)
       return true;
     else
-      return false
+      return false;
   }
 
   addToCart() { 
