@@ -379,3 +379,7 @@ product{
         color: color($colors, danger);
     }
 }
+
+product .card .card-thumb {
+    background-color: unset !important; 
+}

@@ -87,7 +87,7 @@ export class ProductComponent {
     // });
     // }
     // else
-    //   this.navCtrl.push(ProductDetailPage, { data: this.p });
+    // this.navCtrl.push(ProductDetailPage, { data: this.p });
     if (this.type != 'recent') {
       this.shared.addToRecent(this.p);
     }

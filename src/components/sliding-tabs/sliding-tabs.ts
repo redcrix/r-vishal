@@ -16,7 +16,17 @@ import { InfiniteScroll } from 'ionic-angular';
 })
 export class SlidingTabsComponent {
   @ViewChild(InfiniteScroll) infinite: InfiniteScroll;
-
+  image = [
+    "https://cleanever.shop/wp-content/uploads/2019/08/car-car-cleaning-icon-1.jpg",
+    "https://cleanever.shop/wp-content/uploads/2019/08/home-cleaning-icon-1.png",
+    "https://cleanever.shop/wp-content/uploads/2019/08/laundry-cleaning-1.png",
+    "https://cleanever.shop/wp-content/uploads/2019/08/organic-cleaning-icon-2.png",
+    "https://cleanever.shop/wp-content/uploads/2019/08/home-cleaning-icon-1.png",
+    "https://cleanever.shop/wp-content/uploads/2019/08/toilet-cleaning-image-3.jpg",
+    "https://cleanever.shop/wp-content/uploads/2019/08/water-treatment-chemical-1.png",
+    
+  ];
+  
   @Input('type') type;//product data
   products: any = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   selected = '';

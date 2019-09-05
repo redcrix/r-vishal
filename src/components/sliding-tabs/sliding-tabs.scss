@@ -55,19 +55,12 @@ sliding-tabs {
     }
 }
 
-
-
-.pr-image-home{
-    --background: url(https://cleanever.shop/wp-content/uploads/2019/08/home-cleaning-icon-1.png) no-repeat center/cover fixed;
-
-}
-
 .pr-image-css{
     display: -webkit-inline-box;
     border-radius: 133px;
     border: solid #19a3dd;
     background: white;
-    height: 11pc;
+    // height: 11pc;
 }
 
 .pr-grid-my{
@@ -77,15 +70,32 @@ sliding-tabs {
     padding: 22px 12px !important;
 }
 
+sliding-tabs .slides .swiper-slide{
+    height: unset;
+}
+
 @media only screen and (max-width: 768px) {
     .pr-image-css{
         display: -webkit-inline-box;
         border-radius: 133px;
         border: solid #19a3dd;
         background: white;
-        height: 6pc;
+        // height: 6pc;
+        
     }  
+
+    .small-font{
+        font-size: 8px;
+    }
 }
+
+@media only screen and (max-width: 375px){
+    .pr-image-css{
+        height: 39px;
+        width: 39px;
+    }
+}
+
 
 @media only screen and (max-width : 1030px){
     .pr-image-css{
@@ -93,6 +103,7 @@ sliding-tabs {
         border-radius: 133px;
         border: solid #19a3dd;
         background: white;
-        height: 5pc;
+        // height: 5pc;
     }  
 }
+

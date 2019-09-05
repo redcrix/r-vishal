@@ -36,8 +36,23 @@
   </ion-slides> -->
 
 
+  <ion-grid class="pr-grid-my">
+    <ion-row>
+      <ion-col col-1.5 *ngFor="let c of shared.categories; let i = index;" (click)="openSubCategories(c.id)">
+        <span class="pr-my-icon">
+          <ion-thumbnail style="display: -webkit-inline-box">
+            <img src="{{image[i]}}" class="pr-image-css">
+          </ion-thumbnail>
+          <div class="categories-title small-font">{{c.name}}</div>
+          <div class="categories-subtitle small-font">{{c.count}} {{'Products'| translate }} </div>
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-      <!-- <ion-slides >
+
+
+      <!-- <ion-slides>
         <ion-slide col-4 *ngFor="let c of shared.categories" (click)="openSubCategories(c.id)" style="height: auto;" class="animated fadeIn">
           <div class="category-icon"><img *ngIf="c.image" src="{{c.image.src}}" /></div>
           <div class="cateogry-content">
@@ -47,56 +62,16 @@
         </ion-slide>
       </ion-slides> -->
 
-<ion-grid class="pr-grid-my" style="text-align: -webkit-center;">
-    <ion-col col-2>
-      <span class="pr-my-icon">
-        <ion-thumbnail style="display: -webkit-inline-box">
-          <img src="https://cleanever.shop/wp-content/uploads/2019/08/home-cleaning-icon-1.png" class="pr-image-css">
-        </ion-thumbnail>
-      </span>
-    </ion-col>
 
-      <ion-col col-2>
-        <span class="pr-my-icon">
-          <ion-thumbnail style="display: -webkit-inline-box">
-            <img src="https://cleanever.shop/wp-content/uploads/2019/08/car-car-cleaning-icon-1.jpg" class="pr-image-css" style="border: none;">
-          </ion-thumbnail>
-        </span>
-      </ion-col>
-
-      <ion-col col-2>
-        <span class="pr-my-icon">
-          <ion-thumbnail style="display: -webkit-inline-box">
-            <img src="https://cleanever.shop/wp-content/uploads/2019/08/water-treatment-chemical-1.png" class="pr-image-css" style="border-color: #169fe3">
-          </ion-thumbnail>
-        </span>
-      </ion-col>
-
-      <ion-col col-2>
-        <span class="pr-my-icon">
-          <ion-thumbnail  style="display: -webkit-inline-box">
-            <img src="https://cleanever.shop/wp-content/uploads/2019/08/toilet-cleaning-image-3.jpg" class="pr-image-css" style="border-color: #76c09d;">
-          </ion-thumbnail>
-        </span>
-      </ion-col>
-
-      <ion-col col-2>
-        <span class="pr-my-icon">
-          <ion-thumbnail  style="display: -webkit-inline-box">
-            <img src="https://cleanever.shop/wp-content/uploads/2019/08/laundry-cleaning-1.png" class="pr-image-css" style="border-color: #3d90c6">
-          </ion-thumbnail>
-        </span>
-      </ion-col>
-
-      <ion-col col-2>
-        <span class="pr-my-icon">
-          <ion-thumbnail style="display: -webkit-inline-box">
-            <img src="https://cleanever.shop/wp-content/uploads/2019/08/organic-cleaning-icon-2.png" class="pr-image-css" style="border-color: #4ea847;">
-          </ion-thumbnail>
-        </span>
-      </ion-col>
-
-</ion-grid>
+    <!-- products -->
+    <div class="module recent-module">
+      <ion-slides slidesPerView=2 spaceBetween=0>
+        <ion-slide *ngFor="let p of products" style="opacity: 1">
+          <product [data]="p" [type]="'normal'"></product>
+        </ion-slide>
+        <ion-slide class="swiper-slide-last" style="height: 182px;"></ion-slide>
+      </ion-slides>
+    </div>
 
 <ion-grid>
   <ion-col *ngFor="let p of products" col-6>
