@@ -149,16 +149,7 @@
 
   <sliding-tabs></sliding-tabs>
 
-  <!-- Recent Viewed items products -->
-  <div class="module recent-module" *ngIf="shared.recentViewedProducts.length!=0" [@animate]>
-    <h5>{{'Recently Viewed'|translate}}</h5>
-    <ion-slides slidesPerView=2.2 spaceBetween=0 dir="{{shared.dir}}">
-      <ion-slide *ngFor="let p of shared.recentViewedProducts" [@animate]>
-        <product [data]="p" [type]="'recent'"></product>
-      </ion-slide>
-      <ion-slide class="swiper-slide-last"></ion-slide>
-    </ion-slides>
-  </div>
+
   
   <ion-fab bottom right *ngIf="scrollTopButton">
     <button ion-fab (click)="scrollToTop()">

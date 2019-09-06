@@ -44,3 +44,16 @@ footer {
 // 		width:100%;
 // 	}
 // }
+
+.toolbar-md-light .toolbar-background-md {
+    background: #2f3033 !important;
+}
+footer .toolbar .segment .segment-button.segment-activated {
+    color: #f63d3d !important;
+}
+
+footer .toolbar .segment .segment-button {
+    border-bottom-color: transparent;
+    overflow: visible;
+    color: white;
+}

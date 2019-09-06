@@ -9,10 +9,24 @@ import { ConfigProvider } from '../../providers/config/config';
 import 'rxjs/add/operator/map';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { InfiniteScroll } from 'ionic-angular';
-
+import { trigger, style, animate, transition } from '@angular/animations';
 @Component({
   selector: 'sliding-tabs',
-  templateUrl: 'sliding-tabs.html'
+  templateUrl: 'sliding-tabs.html',
+  animations: [
+    trigger(
+      'animate', [
+        transition(':enter', [
+          style({ opacity: 0 }),
+          animate('500ms', style({ opacity: 1 }))
+        ]),
+        transition(':leave', [
+          style({ opacity: 1 }),
+          animate('700ms', style({ opacity: 0 }))
+        ])
+      ]
+    )
+  ],
 })
 export class SlidingTabsComponent {
   @ViewChild(InfiniteScroll) infinite: InfiniteScroll;

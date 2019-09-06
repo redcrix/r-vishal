@@ -58,7 +58,7 @@ sliding-tabs {
 .pr-image-css{
     display: -webkit-inline-box;
     border-radius: 133px;
-    border: solid #19a3dd;
+    // border: solid #19a3dd;
     background: white;
     // height: 11pc;
 }
@@ -73,19 +73,29 @@ sliding-tabs {
 sliding-tabs .slides .swiper-slide{
     height: unset;
 }
+.small-font{
+    text-align: center;
+}
+.pr-empty-class .slide-zoom {
+    text-align: center !important;
+}
+
+.pr-remove-extra .card .card-add-cart.row {
+    display: none;
+}
 
 @media only screen and (max-width: 768px) {
     .pr-image-css{
         display: -webkit-inline-box;
         border-radius: 133px;
-        border: solid #19a3dd;
+        // border: solid #19a3dd;
         background: white;
         // height: 6pc;
         
     }  
 
     .small-font{
-        font-size: 8px;
+        font-size: 10px;
     }
 }
 
@@ -93,6 +103,7 @@ sliding-tabs .slides .swiper-slide{
     .pr-image-css{
         height: 39px;
         width: 39px;
+        padding: 14px;
     }
 }
 
@@ -101,7 +112,7 @@ sliding-tabs .slides .swiper-slide{
     .pr-image-css{
         display: -webkit-inline-box;
         border-radius: 133px;
-        border: solid #19a3dd;
+        // border: solid #19a3dd;
         background: white;
         // height: 5pc;
     }  

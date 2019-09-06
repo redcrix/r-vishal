@@ -383,3 +383,12 @@ product{
 product .card .card-thumb {
     background-color: unset !important; 
 }
+
+.button-md-secondary {
+    background: #044167 !important;
+}
+
+product .card .card-content .card-attr .col .icon {
+    font-size: 22px;
+    color: #fd0000;
+}

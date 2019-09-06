@@ -52050,6 +52050,20 @@ footer .toolbar .segment .segment-button.segment-activated {
   color: #557f5f;
 }
 
+.toolbar-md-light .toolbar-background-md {
+  background: #2f3033 !important;
+}
+
+footer .toolbar .segment .segment-button.segment-activated {
+  color: #f63d3d !important;
+}
+
+footer .toolbar .segment .segment-button {
+  border-bottom-color: transparent;
+  overflow: visible;
+  color: white;
+}
+
 product .list-price-normal-through {
   font-size: 13px;
   font-weight: 600;
@@ -52486,6 +52500,15 @@ product .card .card-thumb {
   background-color: unset !important;
 }
 
+.button-md-secondary {
+  background: #044167 !important;
+}
+
+product .card .card-content .card-attr .col .icon {
+  font-size: 22px;
+  color: #fd0000;
+}
+
 scrolling-featured-products .grid {
   display: inline-block;
 }
@@ -52552,7 +52575,6 @@ sliding-tabs .grid [col-6] {
 .pr-image-css {
   display: -webkit-inline-box;
   border-radius: 133px;
-  border: solid #19a3dd;
   background: white;
 }
 
@@ -52567,15 +52589,26 @@ sliding-tabs .slides .swiper-slide {
   height: unset;
 }
 
+.small-font {
+  text-align: center;
+}
+
+.pr-empty-class .slide-zoom {
+  text-align: center !important;
+}
+
+.pr-remove-extra .card .card-add-cart.row {
+  display: none;
+}
+
 @media only screen and (max-width: 768px) {
   .pr-image-css {
     display: -webkit-inline-box;
     border-radius: 133px;
-    border: solid #19a3dd;
     background: white;
   }
   .small-font {
-    font-size: 8px;
+    font-size: 10px;
   }
 }
 
@@ -52583,6 +52616,7 @@ sliding-tabs .slides .swiper-slide {
   .pr-image-css {
     height: 39px;
     width: 39px;
+    padding: 14px;
   }
 }
 
@@ -52590,7 +52624,6 @@ sliding-tabs .slides .swiper-slide {
   .pr-image-css {
     display: -webkit-inline-box;
     border-radius: 133px;
-    border: solid #19a3dd;
     background: white;
   }
 }
