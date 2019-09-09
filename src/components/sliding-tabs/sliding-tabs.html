@@ -43,7 +43,7 @@
                 <img src="{{image[i]}}" class="pr-image-css">
               </ion-thumbnail>
               <div class="categories-title small-font">{{c.name}}</div>
-              <div class="categories-subtitle small-font">{{c.count}} {{'Products'| translate }} </div>
+              <!-- <div class="categories-subtitle small-font">{{c.count}} {{'Products'| translate }} </div> -->
         </ion-slide>
         <ion-slide class="swiper-slide-last"></ion-slide>
       </ion-slides>
@@ -70,6 +70,7 @@
         <ion-slide *ngFor="let p of shared.recentViewedProducts" style="opacity: 1" [@animate]>
           <product [data]="p" [type]="'recent'" class="pr-remove-extra"></product>
         </ion-slide>
+        <ion-slide class="swiper-slide-last"></ion-slide>
       </ion-slides>
     </div>
 

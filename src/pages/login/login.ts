@@ -134,7 +134,9 @@ export class LoginPage {
             console.log("successfully login ");
             this.createAccount(res.authResponse.accessToken, 'fb');
           })
-          .catch(e => this.alert.show('Error logging into Facebook' + JSON.stringify(e)));
+          .catch(
+            // e => this.alert.show('Error logging into Facebook' + JSON.stringify(e))
+            );
       }
     }).catch(e => this.alert.show('Error Check Login Status Facebook' + JSON.stringify(e)));
   }

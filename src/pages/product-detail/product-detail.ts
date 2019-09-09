@@ -507,7 +507,7 @@ export class ProductDetailPage {
   // ============================== 09-sep-2019 ==============================
   share_product(detail) {
     this.loading.autoHide(2000);
-    this.socialSharing.shareViaWhatsApp('', detail.images[0].src, detail.permalink, 
+    this.socialSharing.shareViaWhatsApp('', detail.images[0].src, "" 
     ).then(() => {  
       // Success 
     }).catch((e) => { 
@@ -518,8 +518,8 @@ export class ProductDetailPage {
     //   this.socialSharing.share(
     //     this.config.packgeName.toString(),
     //     this.config.appName,
-    //     this.config.packgeName.toString(),
-    //     this.config.packgeName.toString()
+    //     detail.images[0].src,
+    //     detail.permalink
     //   ).then(() => {
     //   }).catch(() => {
 
@@ -531,8 +531,8 @@ export class ProductDetailPage {
     //     this.socialSharing.share(
     //       this.config.appName,
     //       this.config.appName,
-    //       "",
-    //       "https://cleanever.shop/product/" + val
+    //       detail.images[0].src,
+    //       detail.permalink
     //     ).then(() => {
 
     //     }).catch(() => {
