@@ -506,13 +506,14 @@ export class ProductDetailPage {
 
   // ============================== 09-sep-2019 ==============================
   share_product(detail) {
+    this.loading.autoHide(2000);
     this.socialSharing.shareViaWhatsApp('', detail.images[0].src, detail.permalink, 
     ).then(() => {  
       // Success 
     }).catch((e) => { 
       // Error! 
     });
-    // this.loading.autoHide(2000);
+    
     // if (this.plt.is('ios')) {
     //   this.socialSharing.share(
     //     this.config.packgeName.toString(),
