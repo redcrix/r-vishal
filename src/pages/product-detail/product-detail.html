@@ -48,10 +48,18 @@
       </ion-col>
 
       <ion-col class="product-title" col-12>
-        <h3>{{product.name}}
-          <br>
-          <small *ngFor="let b of product.categories">{{b.name}}&nbsp;</small>
-        </h3>
+        <ion-row>
+          <ion-col col-9>
+            <h3>{{product.name}} <br>
+              <small *ngFor="let b of product.categories">{{b.name}}&nbsp;</small>
+            </h3>
+          </ion-col>
+          <ion-col col-3>
+            <span class="product-instock" style="float: right;"><button ion-button small (click)="share_product(product)"> Share </button></span>
+          </ion-col>
+        </ion-row>
+
+
 
         <div class="product-ratings">
           <ion-spinner *ngIf="ratingStarsValue==null"></ion-spinner>

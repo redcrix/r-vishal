@@ -3,7 +3,7 @@
 // Author: VectorCoder Team
 // Author URI: http://vectorcoder.com/
 import { Component, ApplicationRef } from '@angular/core';
-import { NavController, NavParams, ModalController, Events } from 'ionic-angular';
+import { NavController, NavParams, ModalController, Events, Platform } from 'ionic-angular';
 import { ConfigProvider } from '../../providers/config/config';
 import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -16,7 +16,7 @@ import { CartPage } from '../cart/cart';
 import { ReviewsPage } from '../reviews/reviews';
 import { StorePage } from '../store/store';
 import { Http } from '@angular/http';
-
+import { AppVersion } from '@ionic-native/app-version';
 
 
 
@@ -61,7 +61,9 @@ export class ProductDetailPage {
     public http: Http,
     public alert: AlertProvider,
     public translate: TranslateService,
+    public plt: Platform,
     private applicationRef: ApplicationRef,
+    private appVersion: AppVersion,
     private socialSharing: SocialSharing) {
 
     this.product = (JSON.parse(JSON.stringify(navParams.get('data'))));
@@ -501,4 +503,41 @@ export class ProductDetailPage {
       this.applicationRef.tick();
     });
   }
+
+  // ============================== 09-sep-2019 ==============================
+  share_product(detail) {
+    this.socialSharing.shareViaWhatsApp('', detail.images[0].src, detail.permalink, 
+    ).then(() => {  
+      // Success 
+    }).catch((e) => { 
+      // Error! 
+    });
+    // this.loading.autoHide(2000);
+    // if (this.plt.is('ios')) {
+    //   this.socialSharing.share(
+    //     this.config.packgeName.toString(),
+    //     this.config.appName,
+    //     this.config.packgeName.toString(),
+    //     this.config.packgeName.toString()
+    //   ).then(() => {
+    //   }).catch(() => {
+
+    //   });
+
+    // } else if (this.plt.is('android')) {
+
+    //   this.appVersion.getPackageName().then((val) => {
+    //     this.socialSharing.share(
+    //       this.config.appName,
+    //       this.config.appName,
+    //       "",
+    //       "https://cleanever.shop/product/" + val
+    //     ).then(() => {
+
+    //     }).catch(() => {
+    //     });
+    //   });
+    // }
+  }
+
 }

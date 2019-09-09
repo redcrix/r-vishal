@@ -52050,6 +52050,20 @@ footer .toolbar .segment .segment-button.segment-activated {
   color: #557f5f;
 }
 
+.toolbar-md-light .toolbar-background-md {
+  background: #2f3033 !important;
+}
+
+footer .toolbar .segment .segment-button.segment-activated {
+  color: #f63d3d !important;
+}
+
+footer .toolbar .segment .segment-button {
+  border-bottom-color: transparent;
+  overflow: visible;
+  color: white;
+}
+
 product .list-price-normal-through {
   font-size: 13px;
   font-weight: 600;
@@ -52484,6 +52498,15 @@ product .list-add-cart .icon {
 
 product .card .card-thumb {
   background-color: unset !important;
+}
+
+.button-md-secondary {
+  background: #044167 !important;
+}
+
+product .card .card-content .card-attr .col .icon {
+  font-size: 22px;
+  color: #fd0000;
 }
 
 scrolling-featured-products .grid {
@@ -53275,6 +53298,18 @@ page-home .page-home .module h5 {
 page-home .animate-product {
   -webkit-animation: bounceInRight 0.75s;
   animation: bounceInRight 0.75s;
+}
+
+.fixed-content {
+  background-image: url(https://cleanever.shop/wp-content/uploads/2019/08/Cleaning-Chemicals-banner-part1.png);
+  opacity: 0.4;
+  background-size: cover;
+  background-position: center;
+}
+
+.side-menu .list-menu .item {
+  border-bottom: 1px solid #dedede;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 page-home10 .moduletop h3 {
