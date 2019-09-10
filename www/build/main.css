@@ -52051,11 +52051,11 @@ footer .toolbar .segment .segment-button.segment-activated {
 }
 
 .toolbar-md-light .toolbar-background-md {
-  background: #2f3033 !important;
+  background: #169fe3 !important;
 }
 
 footer .toolbar .segment .segment-button.segment-activated {
-  color: #f63d3d !important;
+  color: #383838 !important;
 }
 
 footer .toolbar .segment .segment-button {
@@ -52501,7 +52501,7 @@ product .card .card-thumb {
 }
 
 .button-md-secondary {
-  background: #044167 !important;
+  background: #0179b5 !important;
 }
 
 product .card .card-content .card-attr .col .icon {
@@ -52858,6 +52858,10 @@ page-categories .grid .col .card .cateogry-content .categories-subtitle {
   color: #747474;
 }
 
+page-categories .my-image-size {
+  height: 80px;
+}
+
 page-categories2 .page-categories2 .list .item {
   background-color: #ffffff;
 }
@@ -53035,6 +53039,10 @@ page-sub-categories .grid .col .cateogry-content .categories-title {
 page-sub-categories .grid .col .cateogry-content .categories-subtitle {
   font-size: 0.8em;
   color: #747474;
+}
+
+.my-image-size {
+  height: 80px;
 }
 
 page-sub-categories2 .list .item {
@@ -53303,6 +53311,15 @@ page-home .animate-product {
 .side-menu .list-menu .item {
   border-bottom: 1px solid #dedede;
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.pr-new-logo-size {
+  width: 88px !important;
+}
+
+.toolbar-background-md {
+  border-color: #b2b2b2;
+  background: #169fe3;
 }
 
 page-home10 .moduletop h3 {
@@ -54050,6 +54067,10 @@ page-login .footer .button {
 
 page-login .button {
   height: 40px;
+}
+
+.pr-my-logo {
+  border-radius: unset !important;
 }
 
 page-my-account .page-my-account .photo {

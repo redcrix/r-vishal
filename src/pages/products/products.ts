@@ -119,13 +119,15 @@ export class ProductsPage {
     query = query + this.queryAttributes;
     console.log("custom Id = " + query);
     this.getAllAttributes();
-    this.http.get(this.config.url + '/api/appsettings/ionic_filter_products/?insecure=cool' + query).map(res => res.json()).subscribe(data => {
+    console.log(this.config.url + '/api/appsettings/ionic_filter_products/?insecure=cool' + query);
+    var hello = this.http.get(this.config.url + '/api/appsettings/ionic_filter_products/?insecure=cool' + query).map(res => res.json()).subscribe(data => {
       if (data.data)
         this.listOfFilteredIdsFromCustom = data.data;
+        console.log(data.data+'njijnj');
       this.applicationRef.tick();
       this.getFilterdProductsFromWoo();
     });
-
+    console.log(hello);
   }
 
   getFilterdProductsFromWoo() {
@@ -133,6 +135,8 @@ export class ProductsPage {
     if (this.listOfFilteredIdsFromCustom.length == 0) {
       this.enableDisableInfiniteScroll(false);
       this.loadingServerData = true;
+
+      console.log(this.loadingServerData);
       //this.emptyProductList();
       //this.loading.hide();
       return 0;
@@ -197,6 +201,7 @@ export class ProductsPage {
     this.minAmount = this.price.lower;
     this.maxAmount = this.price.upper;
 
+    console.log("after reset " + this);
     this.getFilterdProducts();
   }
 
@@ -317,7 +322,7 @@ export class ProductsPage {
    
     query = query + this.queryAttributes;
     query = query + "&min_price=" + this.price.lower + "&max_price=" + this.price.upper;
-    this.http.get(this.config.url + '/api/appsettings/ionic_get_attributes/?insecure=cool' + query).map(res => res.json()).subscribe(data => {
+    var check = this.http.get(this.config.url + '/api/appsettings/ionic_get_attributes/?insecure=cool' + query).map(res => res.json()).subscribe(data => {
       if (data.attributes) {
         this.attributes = data.attributes;
       }
@@ -343,6 +348,7 @@ export class ProductsPage {
 
       this.applicationRef.tick();
     });
+    console.log(check);
   }
   //=======================================================================================
   selectAttribute(a, v) {
