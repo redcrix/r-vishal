@@ -31,6 +31,8 @@ export class ProductsPage {
   selectedTab = '';
   categoryId = '';
   categoryName = '';
+  count = 0;
+  selected = '';
   sortOrder = 'Newest';
   sortArray = ['Newest', 'A - Z', 'Z - A'];
   //, 'A - Z Date', 'Z - A Date'
@@ -48,7 +50,7 @@ export class ProductsPage {
   featured: any;
   filterOnSale = false;
   filterFeatured = false;
-  loadingServerData = true;
+  loadingServerData = false;
   type = "";
   listOfFilteredIdsFromCustom = [];
 
@@ -73,7 +75,8 @@ export class ProductsPage {
     console.log(this.navParams.get('id'));
     console.log(this.type);
     this.applicationRef.tick();
-    this.getFilterdProducts();
+    this.getProducts(null);
+    // this.getFilterdProducts();
 
   }
   ionViewDidEnter() {
@@ -121,11 +124,13 @@ export class ProductsPage {
     this.getAllAttributes();
     console.log(this.config.url + '/api/appsettings/ionic_filter_products/?insecure=cool' + query);
     var hello = this.http.get(this.config.url + '/api/appsettings/ionic_filter_products/?insecure=cool' + query).map(res => res.json()).subscribe(data => {
+      console.log(this.config.url + '/api/appsettings/ionic_filter_products/?insecure=cool' + query);
       if (data.data)
         this.listOfFilteredIdsFromCustom = data.data;
         console.log(data.data+'njijnj');
       this.applicationRef.tick();
-      this.getFilterdProductsFromWoo();
+       var chechData = this.getFilterdProductsFromWoo();
+       console.log(chechData);
     });
     console.log(hello);
   }
@@ -157,6 +162,7 @@ export class ProductsPage {
       //this.loading.hide();
 
       let data = JSON.parse(dat.body);
+      console.log(data)
       this.infinite.complete();
       if (this.page == 1) { this.emptyProductList(); this.scrollToTop(); this.enableDisableInfiniteScroll(true) }
       if (data.length != 0) {
@@ -202,7 +208,8 @@ export class ProductsPage {
     this.maxAmount = this.price.upper;
 
     console.log("after reset " + this);
-    this.getFilterdProducts();
+    // this.getFilterdProducts();
+    this.getProducts(null);
   }
 
   //changing tab
@@ -218,8 +225,8 @@ export class ProductsPage {
     this.applyFilter = true;
     //this.enableDisableInfiniteScroll(true)
     this.page = 1;
-    //this.getProducts(null);
-    this.getFilterdProducts();
+    this.getProducts(null);
+    // this.getFilterdProducts();
   }
 
   getSortProducts(value) {
@@ -231,7 +238,8 @@ export class ProductsPage {
     this.applyFilter = true;
     this.page = 1;
     this.type = "";
-    this.getFilterdProducts();
+    // this.getFilterdProducts();
+    this.getProducts(null);
     // }
   }
 
@@ -319,10 +327,10 @@ export class ProductsPage {
     let query = '';
     if (this.selectedTab != '') query = query + '&cat_id=' + this.selectedTab;
 
-   
     query = query + this.queryAttributes;
     query = query + "&min_price=" + this.price.lower + "&max_price=" + this.price.upper;
     var check = this.http.get(this.config.url + '/api/appsettings/ionic_get_attributes/?insecure=cool' + query).map(res => res.json()).subscribe(data => {
+      console.log(data);
       if (data.attributes) {
         this.attributes = data.attributes;
       }
@@ -413,4 +421,44 @@ export class ProductsPage {
     let v2 = this.queryAttributes.indexOf(v.name);
     if (v1 != -1 && v2 != -1) { v.value = true; }
   }
+
+
+// =========================================== 12-sep-2019 =================================
+
+  getProducts(infiniteScroll) {
+    if (this.loadingServerData) return 0;
+    if (this.page == 1) {
+
+      this.count++;
+      this.loadingServerData = false;
+    }
+    this.loadingServerData = true;
+    let query = 'products?' + 'page=' + this.page;
+    if (this.selected != '')
+      query = 'products?category=' + this.selected + '&page=' + this.page;
+    query = query + "&status=publish" + "&" + this.config.productsArguments
+    console.log(query);
+    this.config.Woocommerce.getAsync(query).then((data) => {
+      console.log(data);
+
+      let dat = JSON.parse(data.body);
+
+      this.infinite.complete();
+      if (this.page == 1) {
+        this.products = new Array;
+
+      }
+      if (dat.length != 0) {
+        this.page++;
+        for (let value of dat) {
+          this.products.push(value);
+        }
+      }
+      if (dat.length == 0) { this.infinite.enable(false); }
+      this.loadingServerData = false;
+      this.applicationRef.tick();
+      console.log(dat);
+    });
+  }
+
 }

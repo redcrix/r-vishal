@@ -55751,6 +55751,16 @@ page-sign-up .red-color {
   color: red;
 }
 
+.pr-my-photo {
+  width: 146px !important;
+}
+
+.pr-my-fr {
+  width: unset !important;
+  height: unset !important;
+  border-radius: unset !important;
+}
+
 page-store .list {
   background-color: #51688F;
   margin-bottom: 5px;

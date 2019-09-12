@@ -18,9 +18,9 @@
       <ion-slide [class.selected]="selectedTab==''" *ngIf="shared.allCategories!=null" (click)="changeTab('')">
         {{'All'|translate}}</ion-slide>
 
-      <ion-slide [class.selected]="selectedTab==c.id" *ngFor="let c of shared.allCategories" (click)="changeTab(c)">
+      <!-- <ion-slide [class.selected]="selectedTab==c.id" *ngFor="let c of shared.allCategories" (click)="changeTab(c)">
         {{c.name}}
-      </ion-slide>
+      </ion-slide> -->
     </ion-slides>
   </ion-toolbar>
 </ion-header>
@@ -28,7 +28,7 @@
 
 <ion-content class="page-products" (ionScroll)="onScroll($event)">
 
-  <ion-grid *ngIf="productView=='grid'">
+  <!-- <ion-grid *ngIf="productView=='grid'">
     <ion-col *ngFor="let p of products" col-6>
       <product [data]="p" [type]="'normal'"></product>
     </ion-col>
@@ -39,11 +39,26 @@
       <product [data]="p" [type]="'list'"></product>
     </span>
   </ion-list>
+
   <ion-col *ngIf="products.length==0 && loadingServerData" col-12 class="animated fadeIn">
     <h6 text-center>{{'No Products Found!'|translate}}</h6>
   </ion-col>
 
   <ion-infinite-scroll #infinite (ionInfinite)="getFilterdProducts()">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+  <ion-grid>
+    <ion-col *ngFor="let p of products" col-6>
+      <product [data]="p" [type]="'normal'"></product>
+    </ion-col>
+  
+    <ion-col *ngIf="products.length==0 && !loadingServerData" col-12 class="animated fadeIn">
+      <h6 text-center>{{'No Products Found!'|translate}}</h6>
+    </ion-col>
+  </ion-grid>
+  
+  <ion-infinite-scroll #infinite (ionInfinite)="getProducts($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
